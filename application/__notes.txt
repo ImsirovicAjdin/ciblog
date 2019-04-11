@@ -1,0 +1,22 @@
+--- Right after the commit titled:
+		"
+		Configure database access so that posts get loaded from the database
+		"
+	... add the following sql syntax to SQL textbox on phpMyAdmin:
+
+	INSERT INTO `posts` (`id`, `title`, `slug`, `body`, `created_at`)
+	VALUES
+	(
+		NULL,
+		'Post One',
+		'post-one',
+		'Lorem ipsum dolor sit consectetur adipiscing elit',
+		CURRENT_TIMESTAMP
+	),
+	(
+		NULL,
+		'Post Two',
+		'post-two',
+		'Ne obra se bostan dok sljive ne popadaju',
+		CURRENT_TIMESTAMP
+	)
