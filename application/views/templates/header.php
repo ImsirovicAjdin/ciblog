@@ -18,6 +18,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url(); ?>posts">Posts</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
