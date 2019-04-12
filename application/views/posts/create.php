@@ -5,13 +5,11 @@
 <?php echo form_open('posts/create'); ?>
 	<div class="form-group">
 		<label>Title</label>
-		<input type="text" class="form-control" placeholder="Add title" name="title" value="<?php echo $post['title']; ?>">
+		<input type="text" class="form-control" name="title" placeholder="Add Title">
 	</div>
 	<div class="form-group">
 		<label>Body</label>
-		<textarea class="form-control" placeholder="Add Body" name="body">
-			<?php echo $post['body']; ?>
-		</textarea>
+		<textarea id="editor" class="form-control" placeholder="Add Body" name="body"></textarea>
 	</div>
 	<button type="submit" class="btn btn-default">Submit</button>
 </form>

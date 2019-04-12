@@ -4,6 +4,10 @@
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/flatly/bootstrap.min.css">
+
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/3.1.39/jodit.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jodit/3.1.39/jodit.min.js"></script>
+
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="<?= base_url(); ?>">ciBlog</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
