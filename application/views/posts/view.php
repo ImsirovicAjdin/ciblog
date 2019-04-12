@@ -12,5 +12,5 @@
  c/a -->
 	<input type="submit" value="Delete" class="btn btn-danger d-inline">
 </form>
-<a class="btn btn-warning" href="edit/<?php echo $post['slug']; ?>">Edit</a>
+<a class="btn btn-warning" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
 
