@@ -11,7 +11,7 @@
 </div>
 
 <hr>
-<?php echo form_open('/posts/delete'.$post['id']); ?> <!-- this post will submit to /posts/delete/
+<?php echo form_open('/posts/delete/'.$post['id']); ?> <!-- this post will submit to /posts/delete/
  c/a -->
 	<input type="submit" value="delete" class="btn btn-danger">
 </form>
