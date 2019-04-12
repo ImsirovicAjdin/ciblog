@@ -2,7 +2,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('posts/create'); ?>
+<?php echo form_open('posts/update'); ?>
 	<div class="form-group">
 		<label>Title</label>
 		<input name="title" type="text" class="form-control" placeholder="<?php echo $post['title']; ?>"
