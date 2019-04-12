@@ -13,13 +13,19 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item active">
-						<a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
+						<a class="nav-link" href="http://localhost/ciblog/">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
+						<a class="nav-link" href="http://localhost/ciblog/about">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url(); ?>posts">Posts</a>
+						<a class="nav-link" href="http://localhost/ciblog/posts">Blog</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item ml-auto">
+						<a class="nav-link" href="http://localhost/ciblog/posts/create">Create
+							Post</a>
 					</li>
 				</ul>
 			</div>
