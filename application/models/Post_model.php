@@ -38,4 +38,8 @@
 			$this->db->delete('posts'); // delete the post ID you've found above, from tbl 'posts'
 			return true;
 		}
+
+		public function update_post() {
+			echo $this->input->post('id');die();
+		}
 	}

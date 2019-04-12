@@ -3,6 +3,9 @@
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('posts/update'); ?>
+
+		<input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+
 	<div class="form-group">
 		<label>Title</label>
 		<input name="title" type="text" class="form-control" placeholder="<?php echo $post['title']; ?>"
