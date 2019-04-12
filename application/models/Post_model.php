@@ -7,6 +7,9 @@
 
 		public function get_posts($slug = FALSE){
 			if($slug === FALSE){
+
+				$this->db->order_by('id', 'DESC');
+
 				$query = $this->db->get('posts'); // we're using active model here
 				return $query->result_array();
 			}
