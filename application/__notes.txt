@@ -20,3 +20,5 @@
 		'Ne obra se bostan dok sljive ne popadaju',
 		CURRENT_TIMESTAMP
 	)
+	
+-- continue here: https://youtu.be/jOKTjE6Q5QQ?t=1003
