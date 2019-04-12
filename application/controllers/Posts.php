@@ -29,8 +29,18 @@
 		public function create() {
 			$data['title'] = 'Create Post';
 
-			$this->load->view('templates/header');
-			$this->load->view('posts/create', $data);
-			$this->load->view('templates/footer');
+			$this->form_validation->set_rules('title', 'Title', 'required');
+			$this->form_validation->set_rules('body', 'Body', 'required');
+
+			if($this->form_validation->run() === FALSE){ // i.e "if the form validation doesn't run"
+				$this->load->view('templates/header');
+				$this->load->view('posts/create', $data);
+				$this->load->view('templates/footer');
+			}else{
+				$this->post_model->create_post();
+				$this->load->view('posts/success');
+			}
+
+
 		}
 	}
