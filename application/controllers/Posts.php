@@ -67,5 +67,6 @@
 		public function update(){
 			$this->post_model->update_post(); // in the controller we want to call our model function
 			// update_post() - and now we need to define it in the model
+			redirect('posts');
 		}
 	}
