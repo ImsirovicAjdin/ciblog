@@ -52,5 +52,21 @@
 	<!-- flash messages go under the navbar, but right above any page content! -->
 	<!-- we first wanna check for the message with IF -->
 	<?php if($this->session->flashdata('user_registered')) : ?><!-- if flashdata user_registered is found: -->
-		<?php echo '<p class="alert alert-success">'.$this->session->flashdta('user_registered').</p>''; ?>
+		<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>' ; ?>
+	<?php endif; ?>
+
+	<?php if($this->session->flashdata('post_created')) : ?>
+		<?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_created').'</p>' ; ?>
+	<?php endif; ?>
+
+	<?php if($this->session->flashdata('post_updated')) : ?>
+		<?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'</p>' ; ?>
+	<?php endif; ?>
+
+	<?php if($this->session->flashdata('category_created')) : ?>
+		<?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_created').'</p>' ; ?>
+	<?php endif; ?>
+
+	<?php if($this->session->flashdata('post_deleted')) : ?>
+		<?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>' ; ?>
 	<?php endif; ?>
