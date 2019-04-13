@@ -10,7 +10,7 @@
 
 				$this->db->order_by('id', 'DESC');
 
-				$query = $this->db->get('posts'); // we're using active model here
+				$query = $this->db->get('posts');
 				return $query->result_array();
 			}
 
@@ -19,25 +19,20 @@
 		}
 
 		public function create_post(){
-			$slug = url_title($this->input->post('title')); // this is how we get the form values
-			// and we want the value of title - so we're just wrapping the ('title') in this
-			// url_title function, which turns it into a slug
+			$slug = url_title($this->input->post('title'));
 
 			$data = array(
-				'title' => $this->input->post('title'), // we're creating a 'title' key in the
-				// $data array, and we're setting it to whatever came in from
-				// $_POST['<name="title"> form field']
-				'slug' => $slug, // the slug will come from the slug variable we just created,
+				'title' => $this->input->post('title'),
+				'slug' => $slug,
 				'body' => $this->input->post('body'),
-				'category_id' => $this->input->post('category_id') // (4) ADD CATEGORY ID TO TABLE WHEN
-				// create_post()
-			); // so there's our array, we still need to pass it, using RETURN stmt below:
+				'category_id' => $this->input->post('category_id')
+			);
 			return $this->db->insert('posts', $data);
 		}
 
 		public function delete_post($id) {
-			$this->db->where('id', $id); // find post where 'id' is equal to '$id'
-			$this->db->delete('posts'); // delete the post ID you've found above, from tbl 'posts'
+			$this->db->where('id', $id);
+			$this->db->delete('posts');
 			return true;
 		}
 
@@ -48,8 +43,7 @@
 				'title' => $this->input->post('title'),
 				'slug' => $slug,
 				'body' => $this->input->post('body'),
-				'category_id' => $this->input->post('category_id') // (4) UPDATE CATEGORY ID TO TABLE WHEN
-				// update_post()
+				'category_id' => $this->input->post('category_id')
 			);
 
 			$this->db->where('id', $this->input->post('id'));
@@ -59,7 +53,7 @@
 		public function get_categories() {
 			$this->db->order_by('name');
 			$query = $this->db->get('categories');
-			return $query->result_array(); // (2) this will return the categories as an array
+			return $query->result_array();
 		}
 
 	}

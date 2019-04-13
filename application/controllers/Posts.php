@@ -4,8 +4,6 @@
 			$data['title'] = 'Latest Posts';
 
 			$data['posts'] = $this->post_model->get_posts();
-			// print_r($data['posts']); IT WORKS, we know we're passing data along into the $data
-			// variable
 
 			$this->load->view('templates/header');
 			$this->load->view('posts/index', $data);
@@ -29,20 +27,12 @@
 		public function create() {
 			$data['title'] = 'Create Post';
 
-			// (1)
-			// in order to populate 'Categories' dropdown, we need to fetch them from a database
-			// so let's add another element to the $data array, and we'll call this 'categories':
-			// and we'll set this to the post_model, and we'll have a function we'll name get_categories()
 			$data['categories'] = $this->post_model->get_categories();
-			// now we could create a separate categories model, and even a separate categories controller,
-			// but we're just gonna keep it all in Posts.php controller
-			// (3) since we're passing this $data['categories'] variable, we should have access to it in
-			// the view: posts/views/create.php
 
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('body', 'Body', 'required');
 
-			if($this->form_validation->run() === FALSE){ // i.e "if the form validation doesn't run"
+			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
 				$this->load->view('posts/create', $data);
 				$this->load->view('templates/footer');
@@ -55,7 +45,6 @@
 		}
 
 		public function delete($id){
-			//echo $id; // we're checking if the parameter is received correctly
 			$this->post_model->delete_post($id);
 			redirect('posts');
 		}
@@ -75,15 +64,7 @@
 		}
 
 		public function update(){
-			$this->post_model->update_post(); // in the controller we want to call our model function
-			// update_post() - and now we need to define it in the model
+			$this->post_model->update_post();
 			redirect('posts');
 		}
-/*
-		public function get_categories() {
-			$this->db->order_by('name');
-			$this->db->get('categories');
-			return $query->result_array(); // (2) this will return the categories as an array
-		}
-*/
 	}
