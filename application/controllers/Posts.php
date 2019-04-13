@@ -52,6 +52,8 @@
 		public function edit($slug) {
 			$data['post'] = $this->post_model->get_posts($slug);
 
+			$data['categories'] = $this->post_model->get_categories();
+
 			if(empty($data['post'])){
 				show_404();
 			}
