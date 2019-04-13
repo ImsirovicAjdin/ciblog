@@ -27,6 +27,9 @@
 				'slug' => $slug,
 				'body' => $this->input->post('body'),
 				'category_id' => $this->input->post('category_id'),
+				// when we create a post we want the user_id to also be submitted
+				'user_id' => $this->session->userdata('user_id'), // we wanna set 'user_id' to this
+				// session's userdata('user_id')
 				'post_image' => $post_image
 			);
 			return $this->db->insert('posts', $data);
