@@ -58,17 +58,11 @@
 			return $query->result_array();
 		}
 
-		// (1) I wanna get `posts`.`id` and order them by DESC
-		// (2) I wanna join in the categories, which we did in get_posts, so I'll copy the functionality
-			// (2b) instead of get_posts, we're gonna do get_where, because we only wanna get the posts from
-			// (2b) this specific category, WHERE the 'category_id' is equal to the $category_id that we
-			// passed in
-			// (2c) and then we'll return the array
 		public function get_posts_by_category($category_id) {
-			$this->db->order_by('posts.id', 'DESC'); // (1)
-			$this->db->join('categories', 'categories.id = posts.category_id'); // (2a)
-			$query = $this->db->get_where('posts', array('category_id' => $category_id)); // (2b)
-			return $query->result_array(); // (2c)
+			$this->db->order_by('posts.id', 'DESC');
+			$this->db->join('categories', 'categories.id = posts.category_id');
+			$query = $this->db->get_where('posts', array('category_id' => $category_id));
+			return $query->result_array();
 		}
 
 	}

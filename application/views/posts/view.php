@@ -30,14 +30,8 @@
 
 <hr>
 <h3>Add Comment</h3>
-<!-- (2) form validation output
 <?php echo validation_errors(); ?>
 
-<!-- (1)
-When this form is submitted, it's gonna go to the comments controller, on method called create(), and
-an id is gonna get passed as parameter
-So let's also make the controller: Comments.php
--->
 <?php echo form_open('comments/create/'.$post['id']); ?>
 	<div class="form-group">
 		<label>Name</label>
