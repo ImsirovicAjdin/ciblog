@@ -18,11 +18,6 @@
 
 				$this->user_model->register($enc_password);
 
-				// (*)
-				// Set message before we redirect using $this->session
-				// the function is called set_flashdata
-				// it takes an id, we're gonna say 'user_registered', and then the 2nd parameter is gonna be
-				// the message that you wanna send, so we're gonna say 'You r registered n can log in'
 				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
 
 				redirect('posts');
@@ -30,13 +25,9 @@
 			}
 		}
 
-		// (/\/\/\)
-		// Check if username exists
 		public function check_username_exists($username) {
-			// this is the actual message...
 			$this->form_validation->set_message('check_username_exists', 'That username is taken. Please choose a different one');
 
-			// ... now we need the logic for the message:
 			if($this->user_model->check_username_exists($username)){
 				return true;
 			} else {

@@ -49,8 +49,6 @@
 
 <div class="container">
 
-	<!-- flash messages go under the navbar, but right above any page content! -->
-	<!-- we first wanna check for the message with IF -->
 	<?php if($this->session->flashdata('user_registered')) : ?><!-- if flashdata user_registered is found: -->
 	<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>' ; ?>
 	<?php endif; ?>
