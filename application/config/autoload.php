@@ -134,4 +134,4 @@ $autoload['language'] = array();
 */
 
 // We need to initialize the 'category' model:
-$autoload['model'] = array('post_model', 'category_model');
+$autoload['model'] = array('post_model', 'category_model', 'comment_model');
