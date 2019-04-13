@@ -7,7 +7,8 @@
 </div>
 
 <hr>
-
+<img class="img-fluid" src="<?php echo site_url(); ?>assets/images/posts/<?php echo $post['post_image'];
+?>">
 <?php echo form_open('/posts/delete/'.$post['id']); ?>
 	<input type="submit" value="Delete" class="btn btn-danger d-inline">
 </form>
