@@ -117,5 +117,18 @@ ALTER TABLE `posts` ADD `user_id` INT NOT NULL AFTER `category_id` ;
 
 Now our `posts`.`user_id` has ZEROS for all posts, and our db is all set and ready for code.
 
+-- AFTER 9866ce8
 
+Now, up to this point we haven't been working with any kind of messages so for intance after we submit a post we
+haven't made it say you know your posts have been submitted, or anything like that. So what we can do is we can load
+the session library and that has a function that we can use to create flash messages, so basically what that means is
+we can set a message here and then redirect and have that caught on the other side of the redirect and then displayed.
+Alright, we're also going to need the session library to actually handle the you know when we log in we need to store
+that information somewhere and that's going to be in a session, so we want to load that library, we could do it inside
+Users controller, but I want it loaded across the whole application so we're going to go to config/autoload.php and
+we're gonna go to libraries and add:
+$autoload['libraries'] = array('form_validation', 'session');
+
+Now we can use sessions, it's as easy as that. So we'll close that up and then to set a message before we redirect,
+we'll continue in controllers/Users.php, at (*)
 
