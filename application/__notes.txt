@@ -146,3 +146,9 @@ We'll prevent a user registering with a username that already exists in the data
 our own custom validation rule, so let's go to:
 
 Users controller, and set up a custom validation here (/\/\/\)
+
+--- AFTER 4cd525c
+
+While we're logged in, if we click 'create', and copy the URL from the address bar, then we click 'logout',
+and we just paste the URL back in (posts/create), we can still create a post,
+and we obviously don't want that.
