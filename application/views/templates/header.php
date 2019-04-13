@@ -48,7 +48,7 @@
 								Category</a>
 						</li>
 						<li class="nav-item ml-auto">
-							<a class="nav-link" href="<?php echo base_url(); ?>users/login">Logout</a>
+							<a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
 						</li>
 					<?php endif; ?>
 				</ul>
