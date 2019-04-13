@@ -18,4 +18,12 @@
 			// which is 'comments'
 			// and we also wanna add the $data, and that'll do our INSERT
 		}
+
+		public function get_comments($post_id) {
+			$query = $this->db->get_where('comments', array('post_id' => $post_id)); // we wanna match the
+			// post_id
+			// with the $post_id variable that's been passed in
+			return $query->result_array();// now we'll return the query and we want the result_array, this
+			// will give us an array of comments
+		}
 	}

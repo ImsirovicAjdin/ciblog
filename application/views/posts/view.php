@@ -15,6 +15,20 @@
 <a class="btn btn-warning" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
 
 <hr>
+<h3>Comments</h3>
+<?php if($comments) : ?>
+	<?php foreach($comments as $comment) : ?>
+		<div class="card card-body bg-light mt-2 mb-2">
+		<h5><?php echo $comment['body']; ?> [by <strong><?php echo $comment['name']; ?></strong>]</h5>
+		</div>
+	<?php endforeach; ?>
+<?php else : ?>
+
+
+<?php endif; ?>
+
+
+<hr>
 <h3>Add Comment</h3>
 <!-- (2) form validation output
 <?php echo validation_errors(); ?>

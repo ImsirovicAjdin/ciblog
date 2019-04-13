@@ -10,8 +10,12 @@
 			$this->load->view('templates/footer');
 		}
 
+		// single post view:
 		public function view($slug = NULL) {
 			$data['post'] = $this->post_model->get_posts($slug);
+			$post_id = $data['post']['id']; // we're passing the comments into the view (cuz we're writing
+			// into the $data array, and the $data array is passed into the view, as can be seen here (**)
+			$data['comments'] = $this->comment_model->get_comments($post_id);
 
 			if(empty($data['post'])){
 				show_404();
@@ -20,7 +24,7 @@
 			$data['title'] = $data['post']['title'];
 
 			$this->load->view('templates/header');
-			$this->load->view('posts/view', $data);
+			$this->load->view('posts/view', $data); // (**)
 			$this->load->view('templates/footer');
 		}
 
