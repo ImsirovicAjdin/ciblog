@@ -4,7 +4,7 @@
 			$data['title'] = 'Sign Up';
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
-			$this->form_validation->set_rules('username', 'Username', 'required');
+			$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists'); // (/\/\/\)
 			$this->form_validation->set_rules('email', 'Email', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 			$this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
@@ -29,4 +29,19 @@
 
 			}
 		}
+
+		// (/\/\/\)
+		// Check if username exists
+		public function check_username_exists($username) {
+			// this is the actual message...
+			$this->form_validation->set_message('check_username_exists', 'That username is taken. Please choose a different one');
+
+			// ... now we need the logic for the message:
+			if($this->user_model->check_username_exists($username)){
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 	}
