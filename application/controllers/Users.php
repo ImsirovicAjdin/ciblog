@@ -61,19 +61,32 @@
 
 					// Set message
 					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
+
+					redirect('posts');
+
 				} else {
 					// Set message
 					$this->session->set_flashdata('login_failed', 'Login is invalid');
 
 					redirect('users/login');
 				}
-
-				// Set message
-				$this->session->set_flashdata('user_loggedin', 'You are now logged in');
-
-				redirect('posts');
-
 			}
+		}
+
+		// Log user out
+		public function logout() {
+			// Logout is actually really easy, all we have to do is clear out all that session data
+			// so we're gonna unset each individual one first:
+			// Unset user data
+			$this->session->unset_userdata('logged_in');
+			$this->session->unset_userdata('user_id');
+			$this->session->unset_userdata('username');
+
+			// Set message
+			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
+
+			// After that message, we're just gonna redirect to the login form:
+			redirect('users/login');
 		}
 
 		public function check_username_exists($username) {
