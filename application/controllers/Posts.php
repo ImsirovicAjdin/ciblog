@@ -92,6 +92,13 @@
 
 			$data['post'] = $this->post_model->get_posts($slug);
 
+			// Even though the non-owner of a post can't see the edit and delete buttons,
+			// they can still access the CKeditor via direct URL, so we need to guard against that too
+			// Check user
+			if($this->session->userdata('user_id') != $this->post_model->get_posts($slug)['user_id']){
+				redirect('posts');
+			}
+
 			$data['categories'] = $this->post_model->get_categories();
 
 			if(empty($data['post'])){
