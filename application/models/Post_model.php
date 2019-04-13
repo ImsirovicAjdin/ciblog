@@ -9,6 +9,21 @@
 			if($slug === FALSE){
 
 				$this->db->order_by('id', 'DESC');
+				// (1)
+				// display categories in posts' list:
+				// $this->db->join('categories', 'categories.id = posts.category_id');
+/* Explanation:
+If we wanna add a category on posts' list (ciblog/posts URL),
+we actually have to do a JOIN, so we can JOIN in the category, so we can get the name;
+So in the model where we have get_posts(), we wanna join in the categories table, like this:
+$this->db->join('categories', <...and the 2nd argument we say: WHERE categories.id = posts.category_id'>);
+This is what's gonna match them: <...>;
+PROBLEM: Since we have $this->>db->order_by('id','DESC') - the <...> is gonna be ambiguous because there's
+an id in both tables, so we have to define in which table, so it's going to be:
+$this->db->order_by('posts.id', 'DESC');
+$this->>db->join('categories', 'categories.id = posts.category_id');
+... and we'll do that in the next commit
+*/
 
 				$query = $this->db->get('posts');
 				return $query->result_array();
