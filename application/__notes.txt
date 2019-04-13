@@ -21,4 +21,38 @@
 		CURRENT_TIMESTAMP
 	)
 	
--- continue here: https://youtu.be/jOKTjE6Q5QQ?t=1003
+-- AFTER COMMIT ef702bd:
+-- for categories, we're gonna create a new table, we're gonna call it `categories`, it's gonna have 3 fields, this is the query:
+
+CREATE TABLE `ciblog`.`categories` (
+	`id` INT NOT NULL AUTO_INCREMENT ,
+	`name` VARCHAR(255) NOT NULL ,
+	`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+	PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+Now that we have this `categories` table, we need to add a field inside this `posts` table. SQL to execute:
+
+ALTER TABLE `posts` ADD `category_id` INT NOT NULL AFTER `id`;
+ALTER TABLE `posts` ADD `category_id` INT NOT NULL AFTER `id`;
+
+If we look at `posts` now, they all have category of 0. Before we change the values, let's add a couple of categories in `categories` table:
+
+SELECT * FROM `categories`
+
+and then click 'Insert' tab, aka, run this SQL query:
+
+INSERT INTO `categories` (`id`, `name`, `created_at`)
+	VALUES (NULL, 'Business', CURRENT_TIMESTAMP), (NULL, 'Technology', CURRENT_TIMESTAMP);
+
+Now we have these 2 categories, Business has the id of 1, and Technology the id of 2. So let's go back to `posts` and add categories:
+ 1 2 1 2 etc.
+
+Alright, so now they have categories, so what we wanna do, on our "Create Post" page form, we want a category dropdown.
+
+So let's go to Posts.php controller, and add code.
+
+... (1), (2), (3), (4) ...
+
+After adding code (1-4), ACTION: Create new post, add technology (category 2), and check if it
+has updated successfully in the db table `posts`.

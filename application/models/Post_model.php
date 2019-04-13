@@ -28,7 +28,9 @@
 				// $data array, and we're setting it to whatever came in from
 				// $_POST['<name="title"> form field']
 				'slug' => $slug, // the slug will come from the slug variable we just created,
-				'body' => $this->input->post('body')
+				'body' => $this->input->post('body'),
+				'category_id' => $this->input->post('category_id') // (4) ADD CATEGORY ID TO TABLE WHEN
+				// create_post()
 			); // so there's our array, we still need to pass it, using RETURN stmt below:
 			return $this->db->insert('posts', $data);
 		}
@@ -45,10 +47,19 @@
 			$data = array(
 				'title' => $this->input->post('title'),
 				'slug' => $slug,
-				'body' => $this->input->post('body')
+				'body' => $this->input->post('body'),
+				'category_id' => $this->input->post('category_id') // (4) UPDATE CATEGORY ID TO TABLE WHEN
+				// update_post()
 			);
 
 			$this->db->where('id', $this->input->post('id'));
 			return $this->db->update('posts', $data);
 		}
+
+		public function get_categories() {
+			$this->db->order_by('name');
+			$query = $this->db->get('categories');
+			return $query->result_array(); // (2) this will return the categories as an array
+		}
+
 	}

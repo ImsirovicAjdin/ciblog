@@ -29,6 +29,16 @@
 		public function create() {
 			$data['title'] = 'Create Post';
 
+			// (1)
+			// in order to populate 'Categories' dropdown, we need to fetch them from a database
+			// so let's add another element to the $data array, and we'll call this 'categories':
+			// and we'll set this to the post_model, and we'll have a function we'll name get_categories()
+			$data['categories'] = $this->post_model->get_categories();
+			// now we could create a separate categories model, and even a separate categories controller,
+			// but we're just gonna keep it all in Posts.php controller
+			// (3) since we're passing this $data['categories'] variable, we should have access to it in
+			// the view: posts/views/create.php
+
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('body', 'Body', 'required');
 
@@ -69,4 +79,11 @@
 			// update_post() - and now we need to define it in the model
 			redirect('posts');
 		}
+/*
+		public function get_categories() {
+			$this->db->order_by('name');
+			$this->db->get('categories');
+			return $query->result_array(); // (2) this will return the categories as an array
+		}
+*/
 	}
