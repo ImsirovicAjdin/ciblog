@@ -49,7 +49,15 @@
 
 				if($user_id) {
 					// Create session
-					die('SUCCESS');
+					//die('SUCCESS');
+					$user_data = array(
+						'user_id' => $user_id,
+						'username' => $username,
+						'logged_in' => true
+					);
+
+					$this->session->set_userdata($user_data); // user data is set so now we can access
+					// user_id, username, logged_in, anywhere we want
 
 					// Set message
 					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
