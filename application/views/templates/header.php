@@ -17,19 +17,26 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item active">
-						<a class="nav-link" href="http://localhost/ciblog/">Home</a>
+						<a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="http://localhost/ciblog/about">About</a>
+						<a class="nav-link" href="<?php echo base_url(); ?>about">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="http://localhost/ciblog/posts">Blog</a>
+						<a class="nav-link" href="<?php echo base_url(); ?>posts">Blog</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url(); ?>categories">Categories</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item ml-auto">
-						<a class="nav-link" href="http://localhost/ciblog/posts/create">Create
+						<a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create
 							Post</a>
+					</li>
+					<li class="nav-item ml-auto">
+						<a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create
+							Category</a>
 					</li>
 				</ul>
 			</div>

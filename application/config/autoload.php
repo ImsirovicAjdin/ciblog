@@ -132,4 +132,6 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('post_model');
+
+// We need to initialize the 'category' model:
+$autoload['model'] = array('post_model', 'category_model');
