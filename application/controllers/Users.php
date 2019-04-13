@@ -14,24 +14,17 @@
 				$this->load->view('users/register', $data);
 				$this->load->view('templates/footer');
 			} else {
-				// Encrypt password
-				// md5() function will encrypt whatever we pass to it
-					// we want the value of the form so we say $this input from post, and we want this to
-					// be the password field
 				$enc_password = md5($this->input->post('password'));
 
-				// so that should encrypt it and then we want to call our user model to actually do the
-				// submission because the model is where you do all the database interaction, so let's call
-				// the user model, and we're gonna have a function in there called register(); and we just
-				// wanna pass in the encrypted password; we could have done the password encryption in the
-				// model and not have passed it in but I like to follow some of the MVC rules, and that is,
-				// anything that has not to do with the database such as insert select and all that, that
-				// stuff should go in the model; anything that's not that should go in the controller
-				// including encryption so that's why I'm doing it here - you could just as well do it in
-				// the model
 				$this->user_model->register($enc_password);
 
-				// after that, we want to redirect to let's say the post page:
+				// (*)
+				// Set message before we redirect using $this->session
+				// the function is called set_flashdata
+				// it takes an id, we're gonna say 'user_registered', and then the 2nd parameter is gonna be
+				// the message that you wanna send, so we're gonna say 'You r registered n can log in'
+				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
+
 				redirect('post');
 
 			}
