@@ -8,9 +8,8 @@ $route['posts'] = 'posts/index';
 
 $route['default_controller'] = 'pages/view';
 
-// (2)
+
 $route['categories'] = 'categories/index';
-// (1) when we hit this route, it'll go to (C) Categories/create (Action)
 $route['categories/create'] = 'categories/create';
 
 $route['(:any)'] = 'pages/view/$1';

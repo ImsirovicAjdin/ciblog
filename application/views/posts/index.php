@@ -4,10 +4,6 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<!-- FIRST VERSION, LARGE IMAGES BREAK THE LAYOUT
-			<img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $post['post_image']; ?>">
-			-->
-			<!-- SECOND VERSION, LARGE IMAGES ARE CONTAINED WITH THE BOOTSTRAP IMAGE CLASS -->
 			<img class="img-fluid" src="<?php echo site_url(); ?>assets/images/posts/<?php echo $post['post_image'];
 			?>">
 		</div>

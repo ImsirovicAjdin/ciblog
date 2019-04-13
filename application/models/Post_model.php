@@ -9,8 +9,7 @@
 			if($slug === FALSE){
 
 				$this->db->order_by('posts.id', 'DESC');
-				$this->db->join('categories', 'categories.id = posts.category_id'); // (1) gives access to
-				// category name inside the view/
+				$this->db->join('categories', 'categories.id = posts.category_id');
 				$query = $this->db->get('posts');
 				return $query->result_array();
 			}
@@ -28,7 +27,6 @@
 				'slug' => $slug,
 				'body' => $this->input->post('body'),
 				'category_id' => $this->input->post('category_id'),
-				// AND NOW WE JUST WANNA ADD THE IMAGE TO OUR DATABASE
 				'post_image' => $post_image
 			);
 			return $this->db->insert('posts', $data);
