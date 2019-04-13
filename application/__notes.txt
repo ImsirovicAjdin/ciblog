@@ -94,5 +94,28 @@ CREATE TABLE `ciblog`.`comments` (
 	PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
+-- AFTER 5ca90bb
+
+Let's create our `users` table:
+
+CREATE TABLE `ciblog`.`users` (
+	`id` INT NOT NULL AUTO_INCREMENT ,
+	`name` VARCHAR(255) NOT NULL ,
+	`zipcode` VARCHAR(255) NOT NULL ,
+	`email` VARCHAR(255) NOT NULL ,
+	`username` VARCHAR(255) NOT NULL ,
+	`password` VARCHAR(255) NOT NULL ,
+	`register_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+	PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+Now we want to go to the posts table and we need to make it so that the system knows what user added what post,
+that way they can only edit and delete their own posts, so what we'll do is go to structure and then we're going
+to go to after categoryid I want to put it right here, and this is going to be the user_id column.
+
+ALTER TABLE `posts` ADD `user_id` INT NOT NULL AFTER `category_id` ;
+
+Now our `posts`.`user_id` has ZEROS for all posts, and our db is all set and ready for code.
+
 
 
