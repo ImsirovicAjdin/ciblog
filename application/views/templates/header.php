@@ -35,7 +35,7 @@
 							Post</a>
 					</li>
 					<li class="nav-item ml-auto">
-						<a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create
+						<a class="nav-link" href="<?php echo base_url(); ?>categories/create">Create
 							Category</a>
 					</li>
 				</ul>
