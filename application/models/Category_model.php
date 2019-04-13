@@ -17,5 +17,11 @@
 
 			return $this->db->insert('categories', $data);
 		}
+
+		public function get_category($id) {
+			$query = $this->db->get_where('categories', array('id' => $id)); // get categories WHERE 'id'
+			// is equal to $id that gets passed in
+			return $query->row(); // then we just want to return that query's row
+		}
 	}
 
