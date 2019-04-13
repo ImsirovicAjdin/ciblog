@@ -6,13 +6,17 @@
 	<?= $post['body']; ?>
 </div>
 
+
 <hr>
 <img class="img-fluid" src="<?php echo site_url(); ?>assets/images/posts/<?php echo $post['post_image'];
 ?>">
+<!-- only the post owner can edit and delete a post that they own -->
+<?php if($this->session->userdata('user_id') == $post['user_id']) : ?>
 <?php echo form_open('/posts/delete/'.$post['id']); ?>
 	<input type="submit" value="Delete" class="btn btn-danger d-inline">
 </form>
 <a class="btn btn-warning" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
+<?php endif; ?>
 
 <hr>
 <h3>Comments</h3>
