@@ -132,3 +132,12 @@ $autoload['libraries'] = array('form_validation', 'session');
 Now we can use sessions, it's as easy as that. So we'll close that up and then to set a message before we redirect,
 we'll continue in controllers/Users.php, at (*)
 
+-- AFTER da51800
+
+The registration still doesn't work because we haven't load the user model that we created, we need to add it to the
+$autoload['model'] array, like this:
+
+$autoload['model'] = array('post_model', 'category_model', 'comment_model', 'user_model');
+
+
+

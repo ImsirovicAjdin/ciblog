@@ -25,7 +25,7 @@
 				// the message that you wanna send, so we're gonna say 'You r registered n can log in'
 				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
 
-				redirect('post');
+				redirect('posts');
 
 			}
 		}
