@@ -5,7 +5,9 @@
 			$this->load->database();
 		}
 
-		public function get_posts($slug = FALSE){
+		// the second param is the limit and we'll set that by default to false, and then the $offset will
+		// also be FALSE; and then what we wanna do is check to see if there's a limit passed
+		public function get_posts($slug = FALSE, $limit = FALSE, $offset = FALSE){ // (--*--)
 			if($slug === FALSE){
 
 				$this->db->order_by('posts.id', 'DESC');
