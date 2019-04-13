@@ -31,6 +31,9 @@
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item ml-auto">
+						<a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
+					</li>
+					<li class="nav-item ml-auto">
 						<a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create
 							Post</a>
 					</li>
@@ -45,3 +48,9 @@
 <body>
 
 <div class="container">
+
+	<!-- flash messages go under the navbar, but right above any page content! -->
+	<!-- we first wanna check for the message with IF -->
+	<?php if($this->session->flashdata('user_registered')) : ?><!-- if flashdata user_registered is found: -->
+		<?php echo '<p class="alert alert-success">'.$this->session->flashdta('user_registered').</p>''; ?>
+	<?php endif; ?>
