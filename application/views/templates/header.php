@@ -31,6 +31,9 @@
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item ml-auto">
+						<a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
+					</li>
+					<li class="nav-item ml-auto">
 						<a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
 					</li>
 					<li class="nav-item ml-auto">
@@ -67,4 +70,12 @@
 
 	<?php if($this->session->flashdata('post_deleted')) : ?>
 		<?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>' ; ?>
+	<?php endif; ?>
+
+	<?php if($this->session->flashdata('user_loggedin')) : ?>
+		<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>' ; ?>
+	<?php endif; ?>
+
+	<?php if($this->session->flashdata('login_failed')) : ?>
+		<?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>' ; ?>
 	<?php endif; ?>

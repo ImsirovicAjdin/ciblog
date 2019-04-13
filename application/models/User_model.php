@@ -12,6 +12,22 @@
 			return $this->db->insert('users', $data);
 		}
 
+		// Log user in
+		public function login($username, $password) {
+			// Validate
+			$this->db->where('username', $username);
+			$this->db->where('password', $password);
+
+			$result = $this->db->get('users');
+
+			// check for returned rows
+			if($result->num_rows() == 1) {
+				return $result->row(0)->id; // return result row, and then the actual id
+			} else {
+				return false;
+			}
+		}
+
 		public function check_username_exists($username) {
 			$query = $this->db->get_where('users', array('username' => $username));
 
