@@ -57,7 +57,7 @@ So let's go to Posts.php controller, and add code.
 After adding code (1-4), ACTION: Create new post, add technology (category 2), and check if it
 has updated successfully in the db table `posts`.
 
--- AFTER cd96617:
+-- AFTER cd96617 :
 
 In the `posts` table, let's add `post_image` after `body`:
 
@@ -67,5 +67,16 @@ ALTER TABLE `posts` ADD `post_image` VARCHAR(255) NOT NULL AFTER `body` ;
 2. the name of it is gonna get put in the database
 <!-- IT MUST BE 'userfile', OTHERWISE IT WON'T WORK! -->
 
---
+-- AFTER 1096d15 :
+
+Now we wanna display the image, so let's go the views/posts/index.php, and we're gonna add:
+<div class="row">
+	<div class="col-md-3">
+	<!-- this is gonna pull the image name from the database -->
+	<img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $post['post_image']; ?>">
+	</div>
+	<div class="col-md-9">
+We're gonna cut the previous content in the view and put it inside here so that the 9 column wraps it
+	</div>
+</div>
 
