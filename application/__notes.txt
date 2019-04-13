@@ -56,3 +56,16 @@ So let's go to Posts.php controller, and add code.
 
 After adding code (1-4), ACTION: Create new post, add technology (category 2), and check if it
 has updated successfully in the db table `posts`.
+
+-- AFTER cd96617:
+
+In the `posts` table, let's add `post_image` after `body`:
+
+ALTER TABLE `posts` ADD `post_image` VARCHAR(255) NOT NULL AFTER `body` ;
+
+... So the image upload is gonna do 2 things when it uploads: 1. it's gonna get put in the folder that we specified, and then
+2. the name of it is gonna get put in the database
+<!-- IT MUST BE 'userfile', OTHERWISE IT WON'T WORK! -->
+
+--
+
