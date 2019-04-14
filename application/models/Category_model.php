@@ -23,5 +23,11 @@
 			// is equal to $id that gets passed in
 			return $query->row(); // then we just want to return that query's row
 		}
+
+		public function delete_category($id) {
+			$this->db->where('id', $id);
+			$this->db->delete('categories');
+			return true;
+		}
 	}
 

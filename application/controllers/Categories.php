@@ -45,4 +45,20 @@ class Categories extends CI_Controller {
 		$this->load->view('posts/index', $data);
 		$this->load->view('templates/footer');
 	}
+
+	public function delete($id) {
+		// Check login
+		if(!$this->session->userdata('logged_in')) {
+			redirect('users/login');
+		}
+
+		$this->category_model->delete_category($id); // when we do the delete we're calling the
+		// category_model of delete_category so we need to crate that
+
+		// Set message
+		$this->session->set_flashdata('category_deleted', 'Your category has been deleted');
+
+		redirect('categories');
+	}
+
 }
