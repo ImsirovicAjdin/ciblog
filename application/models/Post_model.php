@@ -5,16 +5,8 @@
 			$this->load->database();
 		}
 
-		// the second param is the limit and we'll set that by default to false, and then the $offset will
-		// also be FALSE; and then what we wanna do is check to see if there's a limit passed
-		public function get_posts($slug = FALSE, $limit = FALSE, $offset = FALSE){ // (--*--)
-			// and we also want to see if there's a limit passed in, and there is one in Posts controller,
-			// on this line:
-				// controllers/Posts:
-				// $data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
-				// ok, so it's the per_page limit that's passed in there, so here we check for it:
-			if($limit){ // and we just want to add the limit & the offset to our query, and we can do
-				// that by saying $this->db->limit(); which takes in the $limit, and the $offset:
+		public function get_posts($slug = FALSE, $limit = FALSE, $offset = FALSE){
+			if($limit){
 				$this->db->limit($limit, $offset);
 			}
 
@@ -39,9 +31,7 @@
 				'slug' => $slug,
 				'body' => $this->input->post('body'),
 				'category_id' => $this->input->post('category_id'),
-				// when we create a post we want the user_id to also be submitted
-				'user_id' => $this->session->userdata('user_id'), // we wanna set 'user_id' to this
-				// session's userdata('user_id')
+				'user_id' => $this->session->userdata('user_id'),
 				'post_image' => $post_image
 			);
 			return $this->db->insert('posts', $data);

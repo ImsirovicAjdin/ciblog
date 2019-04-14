@@ -162,6 +162,18 @@ ALTER TABLE `categories` ADD `user_id` INT NOT NULL AFTER `id` ;
 Once the user_id is added, change it from zero to '1', and change other tables accordingly.
 
 
+-- To make a category delete request, we need to use a form. We actually need to do a post request, in
+views/categories/index.php:
+
+<form action="categories/delete/<?php echo $category['id']; ?>" method="POST">
+	<input type="submit" class="btn-link text-danger" value="[X]">
+</form>
+
+Now we have the button, we need to handle it once it's submitted; currently the page:
+
+localhost/ciblog/categories/delete/1
+
+...throws a 404 Page Not Found error
 
 
 
