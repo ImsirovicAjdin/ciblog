@@ -12,7 +12,12 @@
 
 		public function create_category() {
 			$data = array(
-				'name' => $this->input->post('name')
+				'name' => $this->input->post('name'),
+				// when we insert a new category (using our category_model, we just want to add a user ID)
+				// and that's gonna be the session variable which holds our user ID so we'll get it with
+				// $this->session->userdata(), and we want the user_id:
+				'user_id' => $this->session->userdata('user_id')
+				// so now when we add a category it should add the user
 			);
 
 			return $this->db->insert('categories', $data);
