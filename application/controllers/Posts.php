@@ -10,6 +10,7 @@
 			// the table, in our case, it's the `posts`
 			$config['per_page'] = 3;
 			$config['uri_segment'] = 3; // the uri segment
+			$config['attributes'] = array('class' => 'pagination-link');
 
 			// Init pagination
 			$this->pagination->initialize($config);
