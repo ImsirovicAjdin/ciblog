@@ -56,8 +56,7 @@
 						'logged_in' => true
 					);
 
-					$this->session->set_userdata($user_data); // user data is set so now we can access
-					// user_id, username, logged_in, anywhere we want
+					$this->session->set_userdata($user_data);
 
 					// Set message
 					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
@@ -75,9 +74,6 @@
 
 		// Log user out
 		public function logout() {
-			// Logout is actually really easy, all we have to do is clear out all that session data
-			// so we're gonna unset each individual one first:
-			// Unset user data
 			$this->session->unset_userdata('logged_in');
 			$this->session->unset_userdata('user_id');
 			$this->session->unset_userdata('username');

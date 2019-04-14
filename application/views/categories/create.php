@@ -2,7 +2,6 @@
 
 <?php echo validation_errors(); ?>
 
-<!-- we're making a post request to 'categories/create' -->
 <?php echo form_open_multipart('categories/create') ?>
 	<div class="form-group">
 		<label>Name</label>

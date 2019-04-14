@@ -52,8 +52,7 @@ class Categories extends CI_Controller {
 			redirect('users/login');
 		}
 
-		$this->category_model->delete_category($id); // when we do the delete we're calling the
-		// category_model of delete_category so we need to crate that
+		$this->category_model->delete_category($id);
 
 		// Set message
 		$this->session->set_flashdata('category_deleted', 'Your category has been deleted');
