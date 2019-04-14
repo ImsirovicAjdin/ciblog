@@ -152,3 +152,17 @@ Users controller, and set up a custom validation here (/\/\/\)
 While we're logged in, if we click 'create', and copy the URL from the address bar, then we click 'logout',
 and we just paste the URL back in (posts/create), we can still create a post,
 and we obviously don't want that.
+
+--- AFTER e4364f5
+
+We're gonna go to categories table, and we need to add the user_id field. We're gonna click 'Structure' > add 1 after id,
+
+ALTER TABLE `categories` ADD `user_id` INT NOT NULL AFTER `id` ;
+
+Once the user_id is added, change it from zero to '1', and change other tables accordingly.
+
+
+
+
+
+
